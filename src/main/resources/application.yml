@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: Kchat
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:exchange
+    username: dev
+    password: root
+  jpa:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  h2.console.enabled: true
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: WARN
+  com:
+    baeldung: TRACE
+  file:
+    name: log.log
+
+import-service:
+  apilayer:
+    name: "APILayer"
+    key: "nWaLfRnRmN2khGoXLro71fBMQ7WhPEiq"
+    url: "https://api.apilayer.com/exchangerates_data/"
+  currency:
+    name: "Currencyapi"
+    key: "ogDB3HvDmNZC08JI7xn6XlTLn5DDbRSnD12VYaKu"
+    url: "https://api.currencyapi.com/v3/"
+  import-crone: "0 5 0 * * ?"
